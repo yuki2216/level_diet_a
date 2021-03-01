@@ -1,0 +1,31 @@
+<% if user_signed_in? %>
+  <%= form_with(url: search_diaries_path, local: true, method: :get, class: "search-form") do |form| %>
+    <div class="search-flex">
+      <div class='input-day-wrap'>
+        日付検索
+        <%= raw sprintf(
+                form.date_select(
+                  :day,
+                  class:'select-day',
+                  id:"day-data",
+                  use_month_numbers: true,
+                  prompt:'--',
+                  start_year: (Time.now.year),
+                  end_year: (Time.now.year),
+                  date_separator: '%s'),
+                "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+        <%= form.submit "検索", class: "search-btn" %>
+      </div>
+    </div>
+  <% end %>
+  
+  <div class="contents">
+    <div class="big-left">
+      <% @diaries.each do |diary| %>
+        <%= render partial: "diary", locals: { diary: diary } %>
+      <% end %>
+    </div>
+  </div>
+<% else %>
+  <%= render partial: "top_page" %>
+<% end %>

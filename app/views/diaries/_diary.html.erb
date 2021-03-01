@@ -1,0 +1,45 @@
+<div class="oya">
+  <div class="grid-gallery">
+    <% if diary.image.attached? %>
+    <%= image_tag diary.image.variant(resize: '330x330'), class: 'message-image' %>
+    <% else %>
+    <%= image_tag 'noimage.jpeg', size: '300x300'%>
+    <% end %>
+  </div>
+  <div class="grid-day">
+    <%= diary.day %>
+  </div>
+  <% if current_user.id == diary.user_id %>
+  <div class="grid-weight">
+    体重<%= diary.weight %>kg
+  </div>
+  <% end %>
+  <div class="grid-exercise">
+  運動
+  </div>
+  <div class="grid-exercise-text">
+    <span><%= diary.exercise %></span>
+  </div>
+  <div class="grid-comment">
+  コメント
+  </div>
+  <div class="grid-comment-text">
+    <span><%= diary.comment %></span>
+  </div>
+  <div class="grid-h">
+    <%= link_to '詳細', diary_path(diary.id), method: :get, class: "switch" %>
+  </div>
+  <% if current_user.id == diary.user_id %>
+    <div class="grid-i">
+      <%= link_to '編集', edit_diary_path(diary.id), method: :get, class: "switch" %>
+    </div>
+    <div class="grid-j">
+      <%= link_to '削除', "/diaries/#{diary.id}", method: :delete, class: "switch" %>
+    </div>
+  <% end %>
+  <div class="grid-k">
+    <a href="/users/<%= diary.user.id %>">
+      <span>投稿者</span><%= diary.user.nickname %>
+    </a>
+  </div>
+</div>

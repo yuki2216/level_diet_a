@@ -1,0 +1,58 @@
+<%= form_with(model: diary, local: true) do |form| %>
+
+  <%= render 'layouts/error_messages', model: form.object %>
+
+  <span class="new_text">
+    <div class='input-day-wrap'>
+    ※必須<%= raw sprintf(
+                form.date_select(
+                  :day,
+                  class:'select-day',
+                  id:"day-data",
+                  use_month_numbers: true,
+                  prompt:'--',
+                  start_year: (Time.now.year),
+                  end_year: (Time.now.year),
+                  date_separator: '%s'),
+                "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+    </div>
+    <div class="new_day_weight">
+      <div class="alert">※必須</div>
+      <%= form.text_field :weight, placeholder: "体重" %>
+      <h1>kg</h1>
+    </div>
+  </span>
+  <label class="form-image">
+    <span class="image-file">画像</span>
+    <%= form.file_field :image, class: 'hidden' %>
+    <div id="image-list"></div>
+  </label>
+  ※必須/半角数字で入力してください(例:50g/46.7g)
+  <span class="new_text">
+    <div class="new_day_weight">糖質</div>
+    <div class="new_day_weight">タンパク質</div>
+    <div class="new_day_weight">脂質</div>
+    <div class="new_day_weight">カロリー</div>
+  </span>
+  <span class="new_text">
+    <div class="new_day_weight">
+      <%= form.text_field :sugar, placeholder: "" %>
+      <h1>g</h1>
+    </div>
+    <div class="new_day_weight">
+      <%= form.text_field :protein, placeholder: "" %>
+      <h1>g</h1>
+    </div>
+    <div class="new_day_weight">
+      <%= form.text_field :lipid, placeholder: "" %>
+      <h1>g</h1>
+    </div>
+    <div class="new_day_weight">
+      <%= form.text_field :calorie, placeholder: "" %>
+      <h1>g</h1>
+    </div>
+  </span>
+  <%= form.text_area :exercise, placeholder: "運動記録", rows: "3" %>
+  <%= form.text_area :comment, placeholder: "コメント", rows: "4" %>
+  <%= form.submit "登録" %>
+<% end %>

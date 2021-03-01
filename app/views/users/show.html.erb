@@ -1,0 +1,445 @@
+<div class="user-card">
+  <div class="user-target-weight">
+    <h3>目標体重</h3>
+    <h3><%= @target_weight %></h3>
+  </div>
+  <%# 初期体重 %>
+  <% init_wt = @initial_weight %>
+
+  <%# 今日の体重 %>
+  <% current_weight = [] %>
+  <% @diaries.each do |diary| %>
+    <% current_weight << diary.weight.to_f %>
+  <% end %>
+  <% cr_wt = current_weight.min %>
+  <% one_lv = (init_wt - @target_weight)/100 %>
+  <div class="user-level">
+    <% if cr_wt <= (init_wt - one_lv * 100) %>
+      <h1 class="level-100">レベル</h1>
+    <% else %>
+      <h1>レベル</h1>
+    <% end %>
+    
+    
+    <% if cr_wt >= (init_wt - one_lv) %>
+      <h1>1</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 2)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 2) %>
+      <h1>2</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 3)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 3) %>
+      <h1>3</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 4)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 4) %>
+      <h1>4</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 5)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 5) %>
+      <h1>5</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 6)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 6) %>
+      <h1>6</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 7)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 7) %>
+      <h1>7</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 8)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 8) %>
+      <h1>8</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 9)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 9) %>
+      <h1>9</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 10)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 10) %>
+      <h1 class="level-10">10</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 11)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 11) %>
+      <h1>11</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 12)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 12) %>
+      <h1>12</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 13)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 13) %>
+      <h1>13</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 14)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 14) %>
+      <h1>14</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 15)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 15) %>
+      <h1>15</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 16)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 16) %>
+      <h1>16</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 17)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 17) %>
+      <h1>17</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 18)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 18) %>
+      <h1>18</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 19)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 19) %>
+      <h1>19</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 20)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 20) %>
+      <h1 class="level-20">20</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 21)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 21) %>
+      <h1>21</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 22)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 22) %>
+      <h1>22</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 23)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 23) %>
+      <h1>23</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 24)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 24) %>
+      <h1>24</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 25)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 25) %>
+      <h1>25</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 26)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 26) %>
+      <h1>26</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 27)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 27) %>
+      <h1>27</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 28)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 28) %>
+      <h1>28</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 29)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 29) %>
+      <h1>29</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 30)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 30) %>
+      <h1 class="level-30">30</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 31)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 31) %>
+      <h1>31</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 32)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 32) %>
+      <h1>32</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 33)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 33) %>
+      <h1>33</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 34)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 34) %>
+      <h1>34</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 35)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 35) %>
+      <h1>35</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 36)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 36) %>
+      <h1>36</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 37)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 37) %>
+      <h1>37</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 38)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 38) %>
+      <h1>38</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 39)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 39) %>
+      <h1>39</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 40)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 40) %>
+      <h1 class="level-40">40</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 41)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 41) %>
+      <h1>41</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 42)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 42) %>
+      <h1>42</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 43)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 43) %>
+      <h1>43</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 44)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 44) %>
+      <h1>44</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 45)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 45) %>
+      <h1>45</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 46)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 46) %>
+      <h1>46</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 47)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 47) %>
+      <h1>47</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 48)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 48) %>
+      <h1>48</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 49)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 49) %>
+      <h1>49</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 50)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 50) %>
+      <h1 class="level-50">50</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 51)%>kg<br>
+      残り半分となりました！この調子でがんばりましょう。</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 51) %>
+      <h1>51</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 52)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 52) %>
+      <h1>52</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 53)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 53) %>
+      <h1>53</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 54)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 54) %>
+      <h1>54</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 55)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 55) %>
+      <h1>55</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 56)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 56) %>
+      <h1>56</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 57)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 57) %>
+      <h1>57</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 58)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 58) %>
+      <h1>58</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 59)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 59) %>
+      <h1>59</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 60)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 60) %>
+      <h1 class="level-60">60</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 61)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 61) %>
+      <h1>61</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 62)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 62) %>
+      <h1>62</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 63)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 63) %>
+      <h1>63</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 64)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 64) %>
+      <h1>64</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 65)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 65) %>
+      <h1>65</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 66)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 66) %>
+      <h1>66</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 67)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 67) %>
+      <h1>67</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 68)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 68) %>
+      <h1>68</h1>
+      次のレベルは
+      <%= (init_wt - one_lv * 69)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 69) %>
+      <h1>69</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 70)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 70) %>
+      <h1 class="level-70">70</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 71)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 71) %>
+      <h1>71</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 72)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 72) %>
+      <h1>72</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 73)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 73) %>
+      <h1>73</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 74)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 74) %>
+      <h1>74</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 75)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 75) %>
+      <h1>75</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 76)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 76) %>
+      <h1>76</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 77)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 77) %>
+      <h1>77</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 78)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 78) %>
+      <h1>78</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 79)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 79) %>
+      <h1>79</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 80)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 80) %>
+      <h1 class="level-80">80</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 81)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 81) %>
+      <h1>81</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 82)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 82) %>
+      <h1>82</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 83)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 83) %>
+      <h1>83</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 84)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 84) %>
+      <h1>84</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 85)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 85) %>
+      <h1>85</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 86)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 86) %>
+      <h1>86</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 88)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 87) %>
+      <h1>87</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 88)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 88) %>
+      <h1>88</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 89)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 89) %>
+      <h1>89</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 90)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 90) %>
+      <h1 class="level-90">90</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 91)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 91) %>
+      <h1>91</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 92)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 92) %>
+      <h1>92</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 93)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 93) %>
+      <h1>93</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 94)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 94) %>
+      <h1>94</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 95)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 95) %>
+      <h1>95</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 96)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 96) %>
+      <h1>96</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 97)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 97) %>
+      <h1>97</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 98)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 98) %>
+      <h1>98</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 99)%>kg</p>
+    <% elsif cr_wt >= (init_wt - one_lv * 99) %>
+      <h1>99</h1>
+      <p>次のレベルは
+      <%= (init_wt - one_lv * 100)%>kg</p>
+    <% else %>
+      <h1 class="level-100">100</h1>
+      <p>目標達成おめでとうございます🎊<br>今回の経験を生かし、さらに充実した毎日を送っていってください。<br>今まで本当にお疲れ様でした。</p>
+    <% end %>
+  </div>
+</div>
+<div>
+  <% chart_datas = [] %>
+  <% @diaries_reverse.each do |diary_reverse| %>
+    <% chart_data = [] %>
+    <% chart_data << diary_reverse.day %>
+    <% chart_data << diary_reverse.weight %>
+    <% chart_datas << chart_data %>
+  <% end %>
+  体重(kg)
+  <%= line_chart chart_datas, width: "1100px", height: "400px" %>
+
+</div>
+<div class=""> 
+  <p><%= @nickname %>さんの投稿一覧</p>
+  <% @diaries.each do |diary| %>
+    <%= render partial: "diaries/diary", locals: { diary: diary } %>
+  <% end %>
+</div>
+

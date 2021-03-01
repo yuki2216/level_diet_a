@@ -1,0 +1,44 @@
+<div class="top-page-main">
+  <h1>レベル100ダイエット</h1>
+  <br><br>
+  <h2><span>続けられるダイエット</span>をはじめてみませんか？</h2>
+  <br><br><br><br>
+  <h3>「レベル100ダイエット」は続けることに特化したアプリケーションです。</p>
+  <p>レベルによって日に日に痩せていく自分を実感でき、グラフ化によって自分の成長や食事栄養素も簡単に確認できます。</p>
+</div>
+
+<div class="top-page-level top-page-card">
+  <h1>レベル機能</h1>
+  <p>その日の体重を入力すると体重が減った分だけレベルが上がり、レベル100に到達すると目標達成！</p>
+  <%= image_tag 'level.jpeg' , size: '700x70' %>
+</div>
+
+<div class="top-page-nutrient top-page-card">
+  <h1>栄養素機能</h1>
+  <p>糖質、タンパク質、脂質、カロリーを入力するとグラフになって表示されます</p>
+  <%= image_tag 'nutrient.jpeg' , size: '800x70' %>
+</div>
+
+<div class="top-page-anti-aging top-page-card">
+  <h1>アンチエイジング効果</h1>
+  <p>ダイエットは老化対策にも非常に効果的です</p>
+  <p>腹八分目など、一食の摂取カロリーを抑えることで、細胞の死滅を防ぐ機能が強化されることが科学的にわかっています</p>
+  <p>また、プチ断食も効果的で食事を16時間取らないでいると、古くなった体の中の細胞が分解され新しい細胞に生まれ変わらすことができます。</p>
+  <p>余裕があればぜひ挑戦してみてください！</p>
+</div>
+
+<div class="top-page-comment top-page-card">
+  <h1>コメント機能</h1>
+  <p>詳細からコメントで励まし合うこともできます。</p>
+  <p>また、体重は自分の体重は自分しか見れないので安心です。</p>
+  <%= image_tag 'comment.jpeg' , size: '800x70' %>
+</div>
+
+<div class="top-page-last">
+  <p>自分がやり遂げたことで手に入れた自信は、一生無くなりません</p>
+  <h1>始める</h1>
+  <br><br>
+  <%= link_to "新規登録", new_user_registration_path, class: "top-page-sign" %>
+  <%= link_to "ログイン", new_user_session_path, class: "top-page-sign" %>
+  <br><br><br>
+</div>

@@ -1,0 +1,49 @@
+<div class="contents row">
+  <div class="container">
+    <h2>新規登録</h2>
+    <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+      <%= devise_error_messages! %>
+
+      <div class="field">
+        <%= f.label :ニックネーム %> <br />
+        <%= f.text_field :nickname, autofocus: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label :メールアドレス %><br />
+        <%= f.email_field :email %>
+      </div>
+
+      <div class="field">
+        <%= f.label :パスワード %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> 文字以上の半角英数両方を含む)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :パスワード再入力 %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :初期体重 %> <em>半角数字(小数可)</em><br />
+        <div class="new_day_weight">
+          <%= f.text_field :initial_weight, autofocus: true %><h1>kg</h1>
+        </div>
+      </div>
+
+      <div class="field">
+        <%= f.label :目標体重 %> <em>半角数字(小数可)</em><br />
+        <div class="new_day_weight">
+          <%= f.text_field :target_weight, autofocus: true %><h1>kg</h1>
+        </div>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "登録" %>
+      </div>
+    <% end %>
+  </div>
+</div>

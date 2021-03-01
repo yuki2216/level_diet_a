@@ -1,0 +1,83 @@
+<div class="oya">
+  <div class="grid-gallery">
+    <% if @diary.image.attached? %>
+    <%= image_tag @diary.image.variant(resize: '330x330'), class: 'message-image' %>
+    <% else %>
+    <%= image_tag 'noimage.jpeg', size: '300x300'%>
+    <% end %>
+  </div>
+  <div class="grid-day">
+    <%= @diary.day %>
+  </div>
+  <div class="grid-weight">
+    体重<%= @diary.weight %>kg
+  </div>
+  <div class="grid-exercise">
+  運動
+  </div>
+  <div class="grid-exercise-text">
+    <span><%= @diary.exercise %></span>
+  </div>
+  <div class="grid-comment">
+  コメント
+  </div>
+  <div class="grid-comment-text">
+    <span><%= @diary.comment %></span>
+  </div>
+  <% if current_user.id == @diary.user_id %>
+    <div class="grid-h">
+      <%= link_to '編集', edit_diary_path(@diary.id), method: :get %>
+    </div>
+    <div class="grid-i">
+      <%= link_to '削除', "/diaries/#{@diary.id}", method: :delete %>
+    </div>
+  <% end %>
+  <div class="grid-j">
+    <a href="/users/<%= @diary.user.id %>">
+      <span>投稿者</span><%= @diary.user.nickname %>
+    </a>
+  </div>
+</div>
+
+<div>
+  <% chart_datas = [] %>
+  <% chart_data1 = [] %>
+  <% chart_data2 = [] %>
+  <% chart_data3 = [] %>
+  <% chart_data4 = [] %>
+  <% chart_datas << chart_data1 %>
+  <% chart_datas << chart_data2 %>
+  <% chart_datas << chart_data3 %>
+  <% chart_datas << chart_data4 %>
+  <% chart_data1 << "糖質(g)" %>
+  <% chart_data1 << @diary.sugar.to_f %>
+  <% chart_data2 << "タンパク質(g)" %>
+  <% chart_data2 << @diary.protein.to_f %>
+  <% chart_data3 << "カロリー(kcal)" %>
+  <% chart_data3 << @diary.calorie.to_f %>
+  <% chart_data4 << "脂質(g)" %>
+  <% chart_data4 << @diary.lipid.to_f %>
+
+  <%= bar_chart chart_datas, width: "1100px", height: "400px", colors: ["#b00", "#666"] %>
+</div>
+
+  <div class="container">
+    <% if user_signed_in? %>
+      <%= form_with(model: [@diary, @comment], local: true) do |form| %>
+        <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
+        <%= form.submit "送信" %>
+      <% end %>
+    <% else %>
+      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p>
+      </strong>
+    <% end %>
+    <div class="comments">
+      <h4>＜コメント一覧＞</h4>
+      <% @comments.each do |comment| %>
+        <p>
+          <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+          <%= comment.text %>
+        </p>
+      <% end %>
+    </div>
+  </div>

@@ -1,0 +1,14 @@
+ja:
+ activerecord:
+   attributes:
+     user:
+       nickname: ニックネーム
+       initial_weight: 初期体重
+       target_weight: 目標体重
+     diary:
+       day: 日付
+       weight: 体重
+       sugar: 砂糖
+       protein: タンパク質
+       calorie: カロリー
+       lipid: 脂質

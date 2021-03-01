@@ -1,0 +1,12 @@
+<%= form_with(url: search_diaries_path, local: true, method: :get, class: "search-form") do |form| %>
+  <%= form.text_field :keyword, placeholder: "日付で検索", class: "search-input" %>
+  日目
+  <%= form.submit "検索", class: "search-btn" %>
+<% end %>
+<div class="contents">
+  <div class="big-left">
+    <% @diaries.each do |diary| %>
+      <%= render partial: "diary", locals: { diary: diary } %>
+    <% end %>
+  </div>
+</div>
